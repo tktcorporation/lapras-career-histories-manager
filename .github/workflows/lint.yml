@@ -1,0 +1,22 @@
+name: Lint
+
+on:
+  push:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - uses: oven-sh/setup-bun@v1
+        with:
+          bun-version: latest
+      
+      - name: install dependencies
+        run: bun install --frozen-lockfile
+
+      - name: lint
+        run: bun ci

@@ -1,0 +1,25 @@
+{
+  "name": "lapras-career-histories-manager",
+  "module": "index.ts",
+  "type": "module",
+  "scripts": {
+    "postinstall": "simple-git-hooks",
+    "exec": "bun run index.ts",
+    "typecheck": "tsc --noEmit",
+    "test": "bun test --watch",
+    "lint": "biome check .",
+    "lint:fix": "biome check --apply .",
+    "ci": "bun lint && bun typecheck && bun test"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "bun ci"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.5.1",
+    "@types/bun": "latest",
+    "simple-git-hooks": "2.9.0"
+  },
+  "peerDependencies": {
+    "typescript": "5.0.0"
+  }
+}
