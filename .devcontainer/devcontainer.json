@@ -1,0 +1,28 @@
+{
+	"image": "mcr.microsoft.com/devcontainers/base:bullseye",
+	"features": {
+		"ghcr.io/devcontainers/features/github-cli:1": {},
+		"ghcr.io/prulloac/devcontainer-features/bun:1": {}
+	},
+	"postCreateCommand": "sudo apt-get update && sudo apt-get install -y build-essential fzf jq && bun i -g @antfu/ni",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"GitHub.copilot",
+				"GitHub.vscode-pull-request-github",
+				"eamodio.gitlens",
+				"mhutchie.git-graph",
+				"steoates.autoimport",
+				"Atishay-Jain.All-Autocomplete",
+				"usernamehw.errorlens",
+				"editorconfig.editorconfig",
+				"WakaTime.vscode-wakatime",
+				"biomejs.biome"
+			],
+			"files.watcherExclude": {
+				"**/.git/*/**": true,
+				"**/node_modules/*/**": true
+			}
+		}
+	}
+}
