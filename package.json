@@ -16,7 +16,8 @@
   },
   "devDependencies": {
     "@biomejs/biome": "1.5.1",
-    "@types/bun": "latest"
+    "@types/bun": "latest",
+    "simple-git-hooks": "2.9.0"
   },
   "peerDependencies": {
     "typescript": "5.0.0"

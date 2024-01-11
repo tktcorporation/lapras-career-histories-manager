@@ -17,7 +17,8 @@
 				"usernamehw.errorlens",
 				"editorconfig.editorconfig",
 				"WakaTime.vscode-wakatime",
-				"biomejs.biome"
+				"biomejs.biome",
+				"vivaxy.vscode-conventional-commits"
 			],
 			"files.watcherExclude": {
 				"**/.git/*/**": true,
