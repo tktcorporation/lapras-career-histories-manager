@@ -2,6 +2,7 @@ import puppeteer, { Browser } from "puppeteer";
 import { CAREER } from "../CAREER";
 import { createError } from "./error";
 import { getService } from "./service/service";
+import * as utils from "./utils";
 
 // bun で環境変数取得
 const EMAIL = process.env.MY_EMAIL_ADDRESS;
@@ -30,8 +31,10 @@ const main = async () => {
 	try {
 		// 更新情報の取得
 		// まずは.tsから取得形で書いてみるが、あとからyml等に移行する可能性あり
-		const newJobSummary = CAREER.jobSummary;
-		const newExperienceAndSkill = CAREER.experienceAndSkill;
+		const newJobSummary = utils.trimSpaceAndNewLine(CAREER.jobSummary);
+		const newExperienceAndSkill = utils.trimSpaceAndNewLine(
+			CAREER.experienceAndSkill,
+		);
 
 		const hostUrl = getHostUrl();
 		const service = getService({
