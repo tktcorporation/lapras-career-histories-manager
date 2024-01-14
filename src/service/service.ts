@@ -5,7 +5,7 @@ import { getPuppeteerService } from "./loginService";
 const getUnAuthorized = (getServiceProps: GetServiceProps) => {
 	const puppeteerService = getPuppeteerService(getServiceProps);
 	return {
-		getCookieIncludeLoginInfo: puppeteerService.getCookieIncludeLoginInfo,
+		loginAndGetCookies: puppeteerService.loginAndGetCookies,
 	};
 };
 interface GetAuthorizedProps {

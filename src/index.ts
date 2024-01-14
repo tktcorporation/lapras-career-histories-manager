@@ -42,10 +42,11 @@ const main = async () => {
 		// ログイン
 		const { email, password } = getCredentials();
 		const cookieIncludeLoginInfo =
-			await service.getUnAuthorized.getCookieIncludeLoginInfo({
+			await service.getUnAuthorized.loginAndGetCookies({
 				email,
 				password,
 			});
+		console.log("login success");
 
 		const authorizedService = service.getAuthorized({
 			cookies: cookieIncludeLoginInfo,
