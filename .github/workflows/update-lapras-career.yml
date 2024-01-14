@@ -22,4 +22,7 @@ jobs:
       run: bun install --frozen-lockfile
 
     - name: Run Command
+      env:
+        MY_EMAIL_ADDRESS: ${{ secrets.MY_EMAIL_ADDRESS }}
+        MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
       run: bun run exec
