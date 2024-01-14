@@ -1,0 +1,25 @@
+name: Update Lapras Career
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'CAREER.ts'
+
+jobs:
+  run-command:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3
+
+    - uses: oven-sh/setup-bun@v1
+      with:
+        bun-version: latest
+    
+    - name: Install Dependencies
+      run: bun install --frozen-lockfile
+
+    - name: Run Command
+      run: bun run exec
