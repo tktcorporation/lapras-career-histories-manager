@@ -71,7 +71,6 @@ const postLaprasCv =
 			}),
 		);
 		const csrftoken = parsedCookies.csrftoken;
-		console.log(csrftoken);
 		if (!csrftoken) {
 			return err(createError("csrftoken が取得できませんでした"));
 		}
