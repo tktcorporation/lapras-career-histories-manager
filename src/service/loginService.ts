@@ -3,7 +3,7 @@ import { Browser } from "puppeteer";
 import type { GetServiceProps } from "./service";
 
 // ログイン情報を含んだcookieを取得する
-const getCookieIncludeLoginInfo =
+const loginAndGetCookies =
 	({ browser, hostUrl }: GetServiceProps) =>
 	async (props: { email: string; password: string }) => {
 		const page = await browser.newPage();
@@ -24,7 +24,7 @@ const getCookieIncludeLoginInfo =
 				.join("; ");
 		});
 
-		const response = await ofetch(`${hostUrl}/api/auth/`, {
+		await ofetch(`${hostUrl}/api/auth/`, {
 			method: "GET",
 			credentials: "include",
 			redirect: "error",
@@ -36,14 +36,12 @@ const getCookieIncludeLoginInfo =
 			responseType: "json",
 		});
 
-		console.log(response);
-
 		return cookies;
 	};
 
 const getPuppeteerService = (getServiceProps: GetServiceProps) => {
 	return {
-		getCookieIncludeLoginInfo: getCookieIncludeLoginInfo(getServiceProps),
+		loginAndGetCookies: loginAndGetCookies(getServiceProps),
 	};
 };
 
