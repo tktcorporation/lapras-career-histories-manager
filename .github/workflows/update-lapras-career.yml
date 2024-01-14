@@ -1,6 +1,7 @@
 name: Update Lapras Career
 
 on:
+  workflow_dispatch:
   push:
     branches:
       - main
